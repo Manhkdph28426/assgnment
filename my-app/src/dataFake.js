@@ -4,3 +4,9 @@ export const postList = [
     { id: 3, title: "Bai viet 3", content: "Noi dung bai viet 3" },
     { id: 4, title: "Bai viet 4", content: "Noi dung bai viet 4" }
 ]
+
+export const menuList = [
+    { id: 1, path: "/", name: "Home" },
+    { id: 1, path: "/about", name: "About" },
+    { id: 1, path: "/contact", name: "Contact" }
+]
