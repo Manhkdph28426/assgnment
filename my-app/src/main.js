@@ -2,6 +2,8 @@ import AboutPage from "./pages/About"
 import HomePage from "./pages/Home"
 import Navigo from 'navigo'
 import NotFoundPage from "./pages/NotFoundPage"
+import ProjectPage from "./pages/Project"
+import ProjectDetailPage from "./pages/ProjectDetail"
 
 const app = document.querySelector("#app") //tìm phần tử html có id là app
 
@@ -16,6 +18,15 @@ router.on('/', () => { //sử dụng phương thức on để khai báo đườn
 })
 router.on('/about', () => {
     return render(AboutPage, app)
+})
+router.on('/project', () => {
+    return render(ProjectPage, app)
+})
+router.on('/project/:id', ({ data }) => {
+    // console.log(data); // {id:1000}
+    return render(() => {
+        return ProjectDetailPage(data)
+    }, app) // ProjectDetailPage()()
 })
 
 router.notFound(() => {
