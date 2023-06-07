@@ -6,6 +6,7 @@ import ProjectPage from "./pages/Project"
 import ProjectDetailPage from "./pages/ProjectDetail"
 import { router, render } from './lib'
 import ProjectManagementPage from "./pages/Admin/ProjectManagement"
+import AddProjectPage from "./pages/Admin/AddProject"
 
 const app = document.querySelector("#app") //tìm phần tử html có id là app
 
@@ -34,6 +35,9 @@ router.on('/project/:id', ({ data }) => {
 // Admin
 router.on('/admin/project', () => {
     return render(ProjectManagementPage, app)
+})
+router.on('/admin/project/add', () => {
+    return render(AddProjectPage, app)
 })
 
 router.notFound(() => {

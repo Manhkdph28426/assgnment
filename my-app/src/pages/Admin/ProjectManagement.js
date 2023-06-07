@@ -27,6 +27,7 @@ const ProjectManagementPage = () => {
     })
     return `
         <h1>Management Page</h1>
+        <a href="/admin/project/add"><button>Add New Project</button></a>
         <table>
         <thead>
             <tr>
