@@ -46,6 +46,7 @@ const ProjectManagementPage = () => {
                         <td>${project.content}</td>
                         <td>
                             <button class="btn-remove" data-id="${project.id}">Delete</button>
+                            <a href="/admin/project/update/${project.id}"><button>Update</button></a>
                         </td>
                     </tr>
                 `
