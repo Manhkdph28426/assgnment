@@ -9,6 +9,10 @@ const getOne = (id) => {
 const remove = (id) => {
     return instance.delete(`/projectList/${id}`)
 }
-const add = () => { }
-const update = () => { }
-export { getAll, remove }
+const add = (project) => {
+    return instance.post(`/projectList`, project)
+}
+const update = (project) => { //{id: 1, title: 'abc'}
+    return instance.put(`/projectList/${project.id}`, project)
+}
+export { getAll, remove, add, update }

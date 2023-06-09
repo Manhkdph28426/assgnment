@@ -1,3 +1,4 @@
+import { update } from "../../api/project"
 import { router, useEffect, useState } from "../../lib"
 
 const UpdateProjectPage = ({ id }) => {
@@ -19,20 +20,23 @@ const UpdateProjectPage = ({ id }) => {
             event.preventDefault() //chặn sự kiện reload trang
             // lấy dữ liệu từ form
             const newData = {
+                "id": id,
                 "title": document.querySelector("#title").value,
                 "content": document.querySelector("#content").value
             }
             // gọi api để update data
-            fetch(`http://localhost:3000/projectList/${id}`, {
-                method: "PUT", //phương thức PUT để cập nhật data
-                headers: {
-                    'Content-Type': 'application/json' //định dạng dữ liệu gửi đi
-                },
-                body: JSON.stringify(newData) //chuyển đổi dữ liệu sang định dạng json
-            }).then(() => {
-                router.navigate("/admin/project")
-                //sau khi update thành công thì chuyển hướng về trang quản lý
-            })
+            // fetch(`http://localhost:3000/projectList/${id}`, {
+            //     method: "PUT", //phương thức PUT để cập nhật data
+            //     headers: {
+            //         'Content-Type': 'application/json' //định dạng dữ liệu gửi đi
+            //     },
+            //     body: JSON.stringify(newData) //chuyển đổi dữ liệu sang định dạng json
+            // }).then(() => {
+            //     router.navigate("/admin/project")
+            //     //sau khi update thành công thì chuyển hướng về trang quản lý
+            // })
+
+            update(newData).then(() => { router.navigate("/admin/project") })
         })
     })
     return `
