@@ -50,6 +50,9 @@ const ProjectManagementPage = () => {
             <th>Stt</th>
             <th>Project Title</th>
             <th>Project Content</th>
+            <th>Project Image</th>
+            <th>Project Url</th>
+            <th>Project Repository</th>
             <th>Action</th>
             </tr>
         </thead>
@@ -59,7 +62,10 @@ const ProjectManagementPage = () => {
                     <tr>
                         <td>${index + 1}</td>
                         <td>${project.title}</td>
-                        <td>${project.content}</td>
+                        <td>${project.description}</td>
+                        <td><img src="${project.image}"></td>
+                        <td>${project.url}</td>
+                        <td>${project.repository}</td>
                         <td>
                             <button class="btn-remove" data-id="${project.id}">Delete</button>
                             <a href="/admin/project/update/${project.id}"><button>Update</button></a>
