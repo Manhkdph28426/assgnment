@@ -37,5 +37,29 @@
       "title": "demo update",
       "content": "demo"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "sontv",
+      "password": "123456",
+      "roleId": 1
+    },
+    {
+      "id": 2,
+      "username": "thienth",
+      "password": "123456",
+      "roleId": 1
+    }
+  ],
+  "role": [
+    {
+      "id": 1,
+      "name": "admin"
+    },
+    {
+      "id": 2,
+      "name": "user"
+    }
   ]
 }
