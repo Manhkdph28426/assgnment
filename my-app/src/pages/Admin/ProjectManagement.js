@@ -1,11 +1,20 @@
+import { getAll, remove } from "../../api/project"
 import { useEffect, useState } from "../../lib"
+import axios from 'axios'
 
 const ProjectManagementPage = () => {
     const [projects, setProject] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:3000/projectList`)
-            .then(res => res.json())
-            .then(data => setProject(data))
+        // fetch(`http://localhost:3000/projectList`)
+        //     .then(res => res.json())
+        //     .then(data => setProject(data))
+
+        // axios.get(`http://localhost:3000/projectList`)
+        //     .then(({ data }) => setProject(data))
+
+        // axios.get(`http://localhost:3000/users`)
+        //     .then(({ data }) => setProject(data))
+        getAll().then(({ data }) => setProject(data))
 
     }, [])
 
@@ -14,9 +23,16 @@ const ProjectManagementPage = () => {
         for (let btn of btnList) {
             const id = btn.dataset.id
             btn.addEventListener('click', () => {
-                fetch(`http://localhost:3000/projectList/${id}`, {
-                    method: 'DELETE'
-                }).then(() => {
+                // fetch(`http://localhost:3000/projectList/${id}`, {
+                //     method: 'DELETE'
+                // }).then(() => {
+                //     const newProjectList = projects.filter((project) => {
+                //         return project.id != id
+                //     })
+                //     setProject(newProjectList);
+                // })
+
+                remove(id).then(() => {
                     const newProjectList = projects.filter((project) => {
                         return project.id != id
                     })
