@@ -17,7 +17,11 @@ const app = document.querySelector("#app") //tìm phần tử html có id là ap
 //     return container.innerHTML = content()
 // }
 
-router.on('/', () => { //sử dụng phương thức on để khai báo đường dẫn đến từng page
+
+router.on('/home', () => { //sử dụng phương thức on để khai báo đường dẫn đến từng page
+    return render(HomePage, app)
+})
+router.on('/', () => { 
     return render(HomePage, app)
 })
 router.on('/about', () => {

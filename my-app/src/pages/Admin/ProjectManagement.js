@@ -42,8 +42,8 @@ const ProjectManagementPage = () => {
         }
     })
     return `
-        <h1>Management Page</h1>
-        <a href="/admin/project/add"><button>Add New Project</button></a>
+        <h1 class="text-lowercase">Management Page</h1>
+        
         <table>
         <thead>
             <tr>
@@ -67,14 +67,16 @@ const ProjectManagementPage = () => {
                         <td>${project.url}</td>
                         <td>${project.repository}</td>
                         <td>
-                            <button class="btn-remove" data-id="${project.id}">Delete</button>
-                            <a href="/admin/project/update/${project.id}"><button>Update</button></a>
+                            <button class="btn-remove btn btn btn-success" data-id="${project.id}">Delete</button>
+                            <a href="/admin/project/update/${project.id}"><button class="btn btn-primary">Update</button></a>
                         </td>
                     </tr>
                 `
     }).join("")}
         </tbody>
         </table>
+        <a href="/admin/project/add"><button class="btn btn-danger">Add New Project</button></a>
+
     `
 }
 export default ProjectManagementPage

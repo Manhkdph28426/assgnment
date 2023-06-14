@@ -1,26 +1,18 @@
 import Header from '../components/header';
-import { projectList } from '../dataFake'
+// import { projectList } from '../dataFake'
+import menu from '../components/menu';
+import product from '../components/product';
+import footer from '../components/footer';
 
 
 const HomePage = () => {
     // console.log(postList);
     return `
-        ${Header()}
+       
+        ${menu()}
+        ${product()}
+        ${footer()}
 
-        <main>
-        <div>
-            ${projectList.map(function (project) {
-        return `
-                        <div>
-                            <h2>${project.title}</h2>
-                            <p>${project.content}</p>
-                        </div>
-                    `
-    }).join("")}
-            </div>
-        </main>
-        <footer></footer>
-        
     `
 }
 

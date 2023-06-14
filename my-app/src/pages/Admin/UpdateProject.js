@@ -22,7 +22,10 @@ const UpdateProjectPage = ({ id }) => {
             const newData = {
                 "id": id,
                 "title": document.querySelector("#title").value,
-                "content": document.querySelector("#content").value
+                "content": document.querySelector("#content").value,
+                "image": document.querySelector("#image").value,
+                "url": document.querySelector("#url").value,
+                "repository": document.querySelector("#repository").value
             }
             // gọi api để update data
             // fetch(`http://localhost:3000/projectList/${id}`, {
@@ -36,15 +39,51 @@ const UpdateProjectPage = ({ id }) => {
             //     //sau khi update thành công thì chuyển hướng về trang quản lý
             // })
 
-            update(newData).then(() => { router.navigate("/admin/project") })
+            update(newData).then(() => { router.navigate("/admin/project") }).then(() => {alert('Project update successfully')});
         })
     })
     return `
-        <form action="" id="update-form">
-            <input type="text" placeholder="Project title" id="title" value="${project.title}"/>
-            <input type="text" placeholder="Project content" id="content" value="${project.content}"/>
-            <button>Update Project</button>
-        </form>
+   
+    <form class="form"action="" id="update-form" >
+    <div class="mb-3">
+        <label for="validationCustom01" class="form-label fw-bold">title</label>
+        <input type="text" name="" id="title" class="form-control" id="validationCustom01" required value="${project.title}">
+        <div class="invalid-feedback">
+        không được bỏ trống
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="validationCustom01" class="form-label fw-bold">content</label>
+        <input type="text" name="" id="content" class="form-control" id="validationCustom01" required value="${project.content}">
+        <div class="invalid-feedback">
+        không được bỏ trống
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="validationCustom01" class="form-label fw-bold">image</label>
+        <input type="text" name="" id="image" class="form-control" id="validationCustom01" required value="${project.image}">
+        <div class="invalid-feedback">
+        không được bỏ trống
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="validationCustom01" class="form-label fw-bold">url</label>
+        <input type="text" name="" id="url" class="form-control" id="validationCustom01" required value="${project.title}">
+        <div class="invalid-feedback">
+        không được bỏ trống
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="validationCustom01" class="form-label fw-bold">repository</label>
+        <input type="text" name="" id="repository" class="form-control" id="validationCustom01" required value="${project.repository}">
+        <div class="invalid-feedback">
+        không được bỏ trống
+        </div>
+    </div>
+    
+            <button class="btn btn-danger ">update</button>
+            </form>
+        
     `
 }
 
